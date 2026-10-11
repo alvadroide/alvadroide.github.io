@@ -1,22 +1,24 @@
 :root {
   --font-serif: 'Newsreader', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
-  /* Paleta Hacker / SOC (Dark Charcoal + Terminal Green) */
-  --bg-page: #0a0e13;
-  --bg-header: rgba(10, 14, 19, 0.92);
-  --bg-card: #111720;
-  --bg-card-preview: #0d1218;
-  --bg-card-inner: #151d27;
+  /* Paleta Matrix / Terminal Cyberpunk Legible */
+  --bg-page: #060908;
+  --bg-header: rgba(6, 9, 8, 0.92);
+  --bg-card: #0b120f;
+  --bg-card-preview: #080d0a;
+  --bg-card-inner: #0f1a15;
   
-  --text-main: #e2e8f0;
-  --text-muted: #8b9bb0;
-  --text-dim: #5c6c7f;
+  --text-main: #f0fdf4;
+  --text-muted: #a7bfae;
+  --text-dim: #5c7565;
   
-  --accent-green: #00f5a0;
-  --accent-teal: #10b981;
-  --border-subtle: #1c2633;
-  --border-hover: #29384b;
+  --matrix-green: #00ff88;
+  --matrix-glow: rgba(0, 255, 136, 0.15);
+  --matrix-emerald: #10b981;
+  --border-subtle: #16261d;
+  --border-glow: #1f3b2c;
 }
 
 * {
@@ -59,7 +61,7 @@ html {
 
 .brand-name {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #fff;
   text-decoration: none;
   letter-spacing: -0.01em;
@@ -67,9 +69,10 @@ html {
 
 .brand-sub {
   font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  color: var(--accent-green);
-  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--matrix-green);
+  font-family: var(--font-mono);
+  font-weight: 600;
   margin-top: 2px;
 }
 
@@ -90,7 +93,7 @@ html {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #fff;
+  color: var(--matrix-green);
 }
 
 .nav-link.active::after {
@@ -100,29 +103,30 @@ html {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-green);
-  box-shadow: 0 0 8px var(--accent-green);
+  background-color: var(--matrix-green);
+  box-shadow: 0 0 8px var(--matrix-green);
 }
 
 .btn-contact {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  border: 1px solid var(--border-hover);
+  border: 1px solid var(--border-glow);
   border-radius: 999px;
   padding: 0.45rem 1.25rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--matrix-green);
+  background-color: rgba(0, 255, 136, 0.04);
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .btn-contact:hover {
-  background-color: var(--accent-green);
-  border-color: var(--accent-green);
-  color: #05080c;
+  background-color: var(--matrix-green);
+  border-color: var(--matrix-green);
+  color: #060908;
+  box-shadow: 0 0 15px var(--matrix-green);
 }
 
 /* ================= CONTENIDO GLOBAL ================= */
@@ -140,21 +144,21 @@ html {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--accent-green);
+  color: var(--matrix-green);
+  font-family: var(--font-mono);
   margin-bottom: 1.5rem;
 }
 
 /* ================= HERO / PERFIL ================= */
 .hero-section {
   margin-bottom: 6rem;
-  /* Espacio superior para que el navbar fijo no tape el título */
   padding-top: 4.5rem;
 }
 
 .hero-grid,
 .intro-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.25fr 1fr;
   gap: 4rem;
   align-items: start;
 }
@@ -166,7 +170,7 @@ html {
   line-height: 1.12;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #f8fafc;
+  color: #ffffff;
 }
 
 .hero-lead,
@@ -187,7 +191,7 @@ html {
 
 .link-badge {
   text-decoration: none;
-  color: #e2e8f0;
+  color: #fff;
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.45rem 0.95rem;
@@ -201,15 +205,15 @@ html {
 }
 
 .link-badge:hover {
-  border-color: var(--accent-green);
-  color: #fff;
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
 }
 
 .status-badge {
   font-size: 0.82rem;
-  color: #a7f3d0;
-  background-color: rgba(0, 245, 160, 0.08);
-  border: 1px solid rgba(0, 245, 160, 0.25);
+  color: #c9ffd9;
+  background-color: rgba(0, 255, 136, 0.06);
+  border: 1px solid rgba(0, 255, 136, 0.25);
   padding: 0.45rem 0.95rem;
   border-radius: 999px;
   font-weight: 600;
@@ -221,10 +225,10 @@ html {
 .status-badge .dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent-green);
+  background-color: var(--matrix-green);
   border-radius: 50%;
   display: inline-block;
-  box-shadow: 0 0 8px var(--accent-green);
+  box-shadow: 0 0 8px var(--matrix-green);
 }
 
 /* ================= CAPACIDADES ================= */
@@ -243,13 +247,14 @@ html {
 }
 
 .skill-category:hover {
-  border-color: var(--border-hover);
+  border-color: var(--border-glow);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--matrix-glow);
 }
 
 .skill-icon {
   font-size: 1.3rem;
-  color: var(--accent-green);
+  color: var(--matrix-green);
   margin-bottom: 0.9rem;
 }
 
@@ -257,7 +262,8 @@ html {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: #ffffff;
+  font-family: var(--font-mono);
   margin-bottom: 0.6rem;
 }
 
@@ -284,6 +290,7 @@ html {
 
 .timeline-date {
   font-size: 0.85rem;
+  font-family: var(--font-mono);
   font-weight: 600;
   color: var(--text-dim);
 }
@@ -297,7 +304,7 @@ html {
 .role-desc {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent-green);
+  color: var(--matrix-green);
   margin-bottom: 0.75rem;
 }
 
@@ -333,6 +340,7 @@ html {
 
 .cert-year {
   font-size: 0.85rem;
+  font-family: var(--font-mono);
   font-weight: 700;
   color: #fff;
 }
@@ -340,7 +348,7 @@ html {
 .cert-issuer {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accent-green);
+  color: var(--matrix-green);
   margin-top: 2px;
 }
 
@@ -381,7 +389,8 @@ html {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--accent-green);
+  color: var(--matrix-green);
+  font-family: var(--font-mono);
   margin-bottom: 1rem;
 }
 
@@ -402,7 +411,8 @@ html {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #94a3b8;
+  color: #7d9685;
+  font-family: var(--font-mono);
   margin-bottom: 0.35rem;
 }
 
@@ -413,12 +423,13 @@ html {
 }
 
 .case-block code {
-  background: #1c2633;
-  color: var(--accent-green);
+  background: var(--bg-card-inner);
+  color: var(--matrix-green);
+  border: 1px solid var(--border-subtle);
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
   font-size: 0.85em;
-  font-family: monospace;
+  font-family: var(--font-mono);
 }
 
 .btn-text {
@@ -427,7 +438,7 @@ html {
   gap: 0.4rem;
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--accent-green);
+  color: var(--matrix-green);
   text-decoration: none;
   margin-top: 1rem;
 }
@@ -436,7 +447,7 @@ html {
   text-decoration: underline;
 }
 
-/* ================= CONSOLA SOC / TERMINAL ================= */
+/* ================= TERMINAL SOC ================= */
 .case-preview {
   background-color: var(--bg-card-preview);
   display: flex;
@@ -449,21 +460,21 @@ html {
 .soc-terminal-container {
   width: 100%;
   max-width: 380px;
-  background-color: #070a0e;
-  border: 1px solid #1a2533;
+  background-color: #040705;
+  border: 1px solid var(--border-glow);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  font-family: var(--font-mono);
 }
 
 .soc-terminal-header {
-  background-color: #0f151e;
+  background-color: #090e0b;
   padding: 0.55rem 0.9rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  border-bottom: 1px solid #1a2533;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .soc-terminal-header span[class^="dot-"] {
@@ -473,21 +484,21 @@ html {
   display: inline-block;
 }
 
-.dot-red { background: #ef4444; }
-.dot-yellow { background: #f59e0b; }
-.dot-green { background: #10b981; }
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: var(--matrix-green); }
 
 .soc-terminal-title {
   margin-left: 0.5rem;
   font-size: 0.7rem;
-  color: #7b929e;
+  color: var(--text-dim);
 }
 
 .soc-terminal-content {
   padding: 1.25rem;
   font-size: 0.78rem;
   line-height: 1.6;
-  color: #cdd9e5;
+  color: #c9e6d2;
 }
 
 .t-line {
@@ -495,16 +506,16 @@ html {
 }
 
 .t-line.dim {
-  color: #5c6c7f;
+  color: #4b6654;
 }
 
 .t-prompt {
-  color: var(--accent-green);
+  color: var(--matrix-green);
   margin-right: 0.35rem;
 }
 
 .t-alert {
-  background: #111822;
+  background: #09120d;
   border-radius: 4px;
   padding: 0.4rem 0.6rem;
   margin: 0.6rem 0;
@@ -518,7 +529,7 @@ html {
 }
 
 .t-alert.auto {
-  border-left: 3px solid var(--accent-green);
+  border-left: 3px solid var(--matrix-green);
 }
 
 .tag-alert {
@@ -528,12 +539,12 @@ html {
 }
 
 .tag-alert.tag-green {
-  color: var(--accent-green);
+  color: var(--matrix-green);
 }
 
 .radar-divider {
   height: 1px;
-  background-color: #1a2533;
+  background-color: var(--border-subtle);
   margin: 1rem 0;
 }
 
@@ -542,16 +553,16 @@ html {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.7rem;
-  color: var(--accent-green);
+  color: var(--matrix-green);
   font-weight: 600;
 }
 
 .status-indicator {
   width: 6px;
   height: 6px;
-  background: var(--accent-green);
+  background: var(--matrix-green);
   border-radius: 50%;
-  box-shadow: 0 0 6px var(--accent-green);
+  box-shadow: 0 0 8px var(--matrix-green);
 }
 
 /* ================= FOOTER / CONTACTO ================= */
@@ -560,7 +571,7 @@ html {
 }
 
 .footer-card {
-  background: linear-gradient(180deg, #111720 0%, #080c10 100%);
+  background: linear-gradient(180deg, #0b120f 0%, #040705 100%);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 4.5rem 3rem;
@@ -589,8 +600,8 @@ html {
 }
 
 .btn-contact-main {
-  background-color: var(--accent-green);
-  color: #05080c;
+  background-color: var(--matrix-green);
+  color: #060908;
   padding: 0.75rem 1.6rem;
   border-radius: 999px;
   text-decoration: none;
@@ -599,18 +610,18 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-contact-main:hover {
-  background-color: #34d399;
   transform: translateY(-2px);
+  box-shadow: 0 0 20px var(--matrix-green);
 }
 
 .btn-contact-alt {
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(255, 255, 255, 0.03);
   color: #fff;
-  border: 1px solid var(--border-hover);
+  border: 1px solid var(--border-glow);
   padding: 0.75rem 1.4rem;
   border-radius: 999px;
   text-decoration: none;
@@ -623,7 +634,9 @@ html {
 }
 
 .btn-contact-alt:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 255, 136, 0.08);
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
 }
 
 .footer-sub {
@@ -631,6 +644,7 @@ html {
   text-align: center;
   font-size: 0.75rem;
   color: var(--text-dim);
+  font-family: var(--font-mono);
 }
 
 /* ================= RESPONSIVE ================= */
