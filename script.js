@@ -1,19 +1,22 @@
-// Opcional: resaltar enlace de navegación según la sección visible
 window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section, header');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section, main');
+  const navLinks = document.querySelectorAll('.nav-link');
   
-  let current = '';
+  let currentSectionId = '';
+  
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      const id = section.getAttribute('id');
+      if (id) {
+        currentSectionId = id;
+      }
     }
   });
 
   navLinks.forEach((link) => {
     link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
+    if (link.getAttribute('href') === `#${currentSectionId}`) {
       link.classList.add('active');
     }
   });
