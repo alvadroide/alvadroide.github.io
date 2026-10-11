@@ -3,7 +3,6 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
-  /* Paleta Matrix / Terminal Cyberpunk Legible */
   --bg-page: #060908;
   --bg-header: rgba(6, 9, 8, 0.92);
   --bg-card: #0b120f;
@@ -129,7 +128,32 @@ html {
   box-shadow: 0 0 15px var(--matrix-green);
 }
 
-/* ================= CONTENIDO GLOBAL ================= */
+/* ================= HERO / MATRIX BACKGROUND ================= */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 6rem;
+  padding: 5rem 0 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Lienzo de la animación en segundo plano */
+#matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.22; /* Intensidad de la lluvia Matrix */
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2; /* Mantiene el texto siempre encima del canvas */
+}
+
 .main-content {
   max-width: 1280px;
   margin: 0 auto;
@@ -147,12 +171,6 @@ html {
   color: var(--matrix-green);
   font-family: var(--font-mono);
   margin-bottom: 1.5rem;
-}
-
-/* ================= HERO / PERFIL ================= */
-.hero-section {
-  margin-bottom: 6rem;
-  padding-top: 4.5rem;
 }
 
 .hero-grid,
