@@ -2,14 +2,20 @@
   --font-serif: 'Newsreader', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
-  --bg-page: #fbfbf9;
-  --bg-card: #f2f3ee;
-  --bg-card-alt: #ebede7;
-  --text-main: #142023;
-  --text-muted: #536468;
-  --accent-teal: #10635e;
-  --accent-teal-soft: rgba(16, 99, 94, 0.08);
-  --border-subtle: #e2e4dc;
+  /* Paleta Ciberseguridad Editorial (Dark Slate & Terminal Green) */
+  --bg-page: #0c1014;
+  --bg-card: #131920;
+  --bg-card-alt: #17202a;
+  --bg-surface: #10161d;
+  
+  --text-main: #e2e8f0;
+  --text-muted: #8b9bb0;
+  --text-dim: #5c6c7f;
+  
+  --accent-cyan: #00f5a0;
+  --accent-teal: #10b981;
+  --border-subtle: #202b38;
+  --border-focus: #2d3e52;
 }
 
 * {
@@ -30,8 +36,8 @@ html {
 .header {
   position: sticky;
   top: 0;
-  background-color: rgba(251, 251, 249, 0.94);
-  backdrop-filter: blur(10px);
+  background-color: rgba(12, 16, 20, 0.88);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
   z-index: 100;
   padding: 1.1rem 2.5rem;
@@ -53,22 +59,22 @@ html {
 .brand-name {
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--text-main);
+  color: #fff;
   text-decoration: none;
   letter-spacing: -0.01em;
 }
 
 .brand-sub {
   font-size: 0.65rem;
-  letter-spacing: 0.09em;
-  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  color: var(--accent-teal);
   font-weight: 600;
   margin-top: 2px;
 }
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
 .nav-link {
@@ -83,7 +89,7 @@ html {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--text-main);
+  color: #fff;
 }
 
 .nav-link.active::after {
@@ -93,26 +99,28 @@ html {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-teal);
+  background-color: var(--accent-cyan);
 }
 
 .btn-contact {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  border: 1px solid #7c8e92;
+  gap: 0.4rem;
+  border: 1px solid var(--border-focus);
   border-radius: 999px;
   padding: 0.45rem 1.25rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.04);
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .btn-contact:hover {
-  background-color: var(--text-main);
-  color: #fff;
+  background-color: var(--accent-teal);
+  border-color: var(--accent-teal);
+  color: #0b0f13;
 }
 
 /* ================= CONTENIDO GLOBAL ================= */
@@ -123,20 +131,20 @@ html {
 }
 
 .section-block {
-  margin-bottom: 5.5rem;
+  margin-bottom: 6rem;
 }
 
 .intro-kicker {
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--accent-teal);
   margin-bottom: 1.5rem;
 }
 
-/* ================= SECCIÓN HERO / PERFIL ================= */
+/* ================= HERO / PERFIL ================= */
 .hero-section {
-  margin-bottom: 5rem;
+  margin-bottom: 6rem;
   padding-top: 1.5rem;
 }
 
@@ -151,17 +159,17 @@ html {
 .hero-title,
 .intro-title {
   font-family: var(--font-serif);
-  font-size: 3.25rem;
+  font-size: 3.3rem;
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #0d272b;
+  color: #f8fafc;
 }
 
 .hero-lead,
 .intro-lead {
   font-size: 1.1rem;
-  color: #405256;
+  color: var(--text-muted);
   line-height: 1.65;
   margin-bottom: 1.5rem;
 }
@@ -176,65 +184,83 @@ html {
 
 .link-badge {
   text-decoration: none;
-  color: var(--text-main);
+  color: #e2e8f0;
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.4rem 0.9rem;
-  background-color: #fff;
+  padding: 0.45rem 0.95rem;
+  background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
 }
 
 .link-badge:hover {
   border-color: var(--accent-teal);
+  color: #fff;
 }
 
 .status-badge {
-  font-size: 0.8rem;
-  color: #2b554b;
+  font-size: 0.82rem;
+  color: #a7f3d0;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
 }
 
 .status-badge .dot {
   width: 8px;
   height: 8px;
-  background-color: #10b981;
+  background-color: var(--accent-cyan);
   border-radius: 50%;
   display: inline-block;
+  box-shadow: 0 0 8px var(--accent-cyan);
 }
 
 /* ================= CAPACIDADES ================= */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.75rem;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
 .skill-category {
-  background: #fff;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   padding: 1.75rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.skill-category:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+}
+
+.skill-icon {
+  font-size: 1.4rem;
+  color: var(--accent-teal);
+  margin-bottom: 1rem;
 }
 
 .skill-category h3 {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--accent-teal);
-  margin-bottom: 0.75rem;
+  color: #f1f5f9;
+  margin-bottom: 0.6rem;
 }
 
 .skill-category p {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.55;
 }
@@ -258,13 +284,13 @@ html {
 .timeline-date {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-dim);
 }
 
 .timeline-content h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #fff;
 }
 
 .role-desc {
@@ -285,24 +311,60 @@ html {
   margin-bottom: 0.4rem;
 }
 
+/* ================= CERTIFICACIONES ================= */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.6rem;
+}
+
+.cert-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.cert-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.cert-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 /* ================= CASOS DE ESTUDIO ================= */
 .case-study-card {
   background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
   margin-top: 2rem;
 }
 
 .case-study-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   min-height: 520px;
 }
 
 .case-info {
   padding: 3.5rem 3rem;
-  background-color: #f7f8f4;
+  background-color: var(--bg-card);
 }
 
 .case-tag {
@@ -318,7 +380,7 @@ html {
   font-size: 2.25rem;
   line-height: 1.15;
   font-weight: 600;
-  color: #12282c;
+  color: #fff;
   margin-bottom: 2rem;
 }
 
@@ -330,18 +392,19 @@ html {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #274045;
+  color: #94a3b8;
   margin-bottom: 0.35rem;
 }
 
 .case-block p {
   font-size: 0.93rem;
-  color: #435457;
+  color: var(--text-muted);
   line-height: 1.55;
 }
 
 .case-block code {
-  background: #e2e5dc;
+  background: #1e293b;
+  color: var(--accent-cyan);
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
   font-size: 0.85em;
@@ -354,7 +417,7 @@ html {
   gap: 0.4rem;
   font-size: 0.88rem;
   font-weight: 700;
-  color: var(--accent-teal);
+  color: var(--accent-cyan);
   text-decoration: none;
   margin-top: 1rem;
 }
@@ -363,122 +426,169 @@ html {
   text-decoration: underline;
 }
 
-/* Preview / Diagramas */
+/* Preview / Gráficos de Ciberseguridad */
 .case-preview {
   background-color: var(--bg-card-alt);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2.5rem;
-  border-left: 1px solid rgba(0, 0, 0, 0.04);
+  border-left: 1px solid var(--border-subtle);
 }
 
-/* Diagrama de Pipeline de Memoria */
-.architecture-diagram {
+/* Radar & SOC Simulation */
+.soc-radar-box {
   width: 100%;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.pipeline-step {
-  width: 100%;
-  background: white;
+  max-width: 340px;
+  background: #0d1217;
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 1rem;
+  border-radius: 10px;
+  padding: 1.25rem;
+  font-family: monospace;
+}
+
+.terminal-line {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.t-prompt {
+  color: var(--accent-cyan);
+}
+
+.alert-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-main);
+  gap: 0.6rem;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  background: #151d24;
 }
 
-.pipeline-step.highlight {
-  border-color: var(--accent-teal);
-  background-color: #f0f7f6;
-  box-shadow: 0 4px 12px rgba(16, 99, 94, 0.1);
+.alert-high {
+  border-left: 3px solid #ef4444;
 }
 
-.step-num {
-  font-size: 0.7rem;
+.alert-med {
+  border-left: 3px solid var(--accent-teal);
+}
+
+.badge-threat {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #ef4444;
+}
+
+.badge-yellow {
+  color: var(--accent-cyan);
+}
+
+.radar-scan {
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.25rem 0;
+}
+
+.scan-circle {
+  width: 90px;
+  height: 90px;
+  border: 1px dashed rgba(16, 185, 129, 0.4);
+  border-radius: 50%;
+}
+
+.scan-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.radar-status {
+  text-align: center;
+  font-size: 0.68rem;
   color: var(--accent-teal);
-  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
-.pipeline-connector {
-  font-weight: 700;
-  color: #8da19e;
-}
-
-/* Blueprint terminal para Log-Sentinel */
-.blueprint-box {
+/* Terminal Log-Sentinel */
+.terminal-card {
   width: 100%;
   max-width: 380px;
-  background-color: #1a2528;
+  background-color: #0d1217;
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-.bp-header {
-  background-color: #121c1e;
+.term-header {
+  background-color: #141b22;
   padding: 0.6rem 0.9rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.bp-header span[class^="dot-"] {
+.term-header span[class^="dot-"] {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.dot-red { background: #ff5f56; }
-.dot-yellow { background: #ffbd2e; }
-.dot-green { background: #27c93f; }
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
 
-.bp-title {
+.term-title {
   margin-left: 0.5rem;
-  font-size: 0.7rem;
-  color: #7d969b;
+  font-size: 0.72rem;
+  color: #8b9bb0;
   font-family: monospace;
 }
 
-.bp-body {
+.term-body {
   padding: 1.25rem;
-  color: #80e2d3;
   font-family: monospace;
   font-size: 0.78rem;
   line-height: 1.6;
 }
 
-/* ================= FOOTER ================= */
+.term-dim { color: #5c6c7f; }
+.term-alert { color: #f87171; }
+.term-text { color: #cbd5e1; }
+.term-success { color: var(--accent-cyan); }
+
+/* ================= FOOTER / CONTACTO ================= */
 .footer-section {
   margin-top: 6rem;
 }
 
 .footer-card {
-  background-color: #14282c;
+  background: linear-gradient(180deg, #131a22 0%, #0c1014 100%);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  padding: 4rem 3rem;
+  padding: 4.5rem 3rem;
   text-align: center;
   color: #fff;
 }
 
 .footer-card h2 {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .footer-card p {
-  color: #9cb1b5;
+  color: var(--text-muted);
   max-width: 580px;
   margin: 0 auto 2.5rem;
   font-size: 1rem;
@@ -492,27 +602,28 @@ html {
 }
 
 .btn-contact-main {
-  background-color: #17827b;
-  color: #fff;
+  background-color: var(--accent-teal);
+  color: #0b0f13;
   padding: 0.75rem 1.6rem;
   border-radius: 999px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background 0.2s;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
 .btn-contact-main:hover {
-  background-color: #146e68;
+  background-color: var(--accent-cyan);
+  transform: translateY(-2px);
 }
 
 .btn-contact-alt {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-focus);
   padding: 0.75rem 1.4rem;
   border-radius: 999px;
   text-decoration: none;
@@ -525,14 +636,14 @@ html {
 }
 
 .btn-contact-alt:hover {
-  background-color: rgba(255, 255, 255, 0.16);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .footer-sub {
   margin-top: 2rem;
   text-align: center;
   font-size: 0.75rem;
-  color: #7b8e92;
+  color: var(--text-dim);
 }
 
 /* ================= RESPONSIVE ================= */
@@ -561,5 +672,7 @@ html {
   .case-preview {
     min-height: 280px;
     padding: 2rem 1rem;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
   }
 }
